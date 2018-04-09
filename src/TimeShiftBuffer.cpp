@@ -222,8 +222,8 @@ bool TimeShiftBuffer::ExecuteServerRequest(const std::string& url, std::vector<s
   void* req_handle = XBMC->OpenFile(url.c_str(), 0);
   if (req_handle != NULL)
   {
-    char resp_buf[1024];
-    unsigned int read = XBMC->ReadFile(req_handle, resp_buf, sizeof(resp_buf));
+    char resp_buf[1025] = {0};
+    unsigned int read = XBMC->ReadFile(req_handle, resp_buf, sizeof(resp_buf) - 1);
 
     if (read > 0)
     {
