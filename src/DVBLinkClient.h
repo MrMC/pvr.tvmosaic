@@ -107,7 +107,8 @@ struct dvblink_server_caps
     recordings_supported_(false),
     timeshifting_supported_(false),
     device_management_supported_(false),
-    timeshift_commands_supported_(false)
+    timeshift_commands_supported_(false),
+    resume_supported_(false)
   {}
 
   std::string server_version_;
@@ -120,6 +121,7 @@ struct dvblink_server_caps
   bool timeshifting_supported_;
   bool device_management_supported_;
   bool timeshift_commands_supported_;
+  bool resume_supported_;
 };
 
 class DVBLinkClient: public PLATFORM::CThread, public dvblinkremote::DVBLinkRemoteLocker
@@ -160,6 +162,8 @@ public:
   time_t GetBufferTimeEnd();
   bool GetRecordingURL(const char* recording_id, std::string& url, bool use_transcoder, int width,
     int height, int bitrate, std::string audiotrack);
+  int GetRecordingLastPlayedPosition(const PVR_RECORDING &recording);
+  PVR_ERROR SetRecordingLastPlayedPosition(const PVR_RECORDING &recording, int position);
 
 private:
   bool DoEPGSearch(dvblinkremote::EpgSearchResult& epgSearchResult, const std::string& channelId, const long startTime,

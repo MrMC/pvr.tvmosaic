@@ -822,6 +822,22 @@ long long LengthRecordedStream(void)
   return -1;
 }
 
+int GetRecordingLastPlayedPosition(const PVR_RECORDING &recording)
+{
+  if (dvblinkclient)
+    return dvblinkclient->GetRecordingLastPlayedPosition(recording);
+
+  return -1;
+}
+
+PVR_ERROR SetRecordingLastPlayedPosition(const PVR_RECORDING &recording, int position)
+{
+  if (dvblinkclient)
+    return dvblinkclient->SetRecordingLastPlayedPosition(recording, position);
+
+  return PVR_ERROR_FAILED;
+}
+
 /** UNUSED API FUNCTIONS */
 
 PVR_ERROR GetStreamProperties(PVR_STREAM_PROPERTIES* pProperties)
@@ -904,16 +920,6 @@ PVR_ERROR RenameRecording(const PVR_RECORDING &recording)
 PVR_ERROR SetRecordingPlayCount(const PVR_RECORDING &recording, int count)
 {
   return PVR_ERROR_NOT_IMPLEMENTED;
-}
-
-PVR_ERROR SetRecordingLastPlayedPosition(const PVR_RECORDING &recording, int lastplayedposition)
-{
-  return PVR_ERROR_NOT_IMPLEMENTED;
-}
-
-int GetRecordingLastPlayedPosition(const PVR_RECORDING &recording)
-{
-  return -1;
 }
 
 PVR_ERROR UndeleteRecording(const PVR_RECORDING& recording)

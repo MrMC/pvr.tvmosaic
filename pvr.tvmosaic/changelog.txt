@@ -1,3 +1,7 @@
+[B]Version 7.1.0[/B]
+Added: support for set/get last played position in a recording
+based on https://github.com/kodi-pvr/pvr.dvblink/pull/109/commits/72c50ac3057aa5faaadcec323e4a9d84402a507f
+
 [B]Version 7.0.0[/B]
 Rebrand pvr.dvblink to pvr.tvmosaic
 Fixed: TV Mosaic connection

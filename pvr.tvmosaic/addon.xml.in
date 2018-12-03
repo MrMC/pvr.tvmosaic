@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="pvr.tvmosaic"
-  version="7.0.0"
+  version="7.1.0"
   name="TV Mosaic PVR Client"
   provider-name="DVBLogic, MrMC">
   <requires>
