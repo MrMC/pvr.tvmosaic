@@ -1530,7 +1530,6 @@ bool DVBLinkClient::OpenLiveStream(const PVR_CHANNEL &channel, bool use_timeshif
 
 int DVBLinkClient::ReadLiveStream(unsigned char *pBuffer, unsigned int iBufferSize)
 {
-  const PLATFORM::CLockObject critsec(m_mutex);
   if (m_live_streamer)
     return m_live_streamer->ReadData(pBuffer, iBufferSize);
   return 0;
@@ -1538,7 +1537,6 @@ int DVBLinkClient::ReadLiveStream(unsigned char *pBuffer, unsigned int iBufferSi
 
 long long DVBLinkClient::SeekLiveStream(long long iPosition, int iWhence)
 {
-  const PLATFORM::CLockObject critsec(m_mutex);
   if (m_live_streamer)
     return m_live_streamer->Seek(iPosition, iWhence);
   return 0;
